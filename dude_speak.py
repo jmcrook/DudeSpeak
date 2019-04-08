@@ -1,7 +1,6 @@
 import nltk
 import random
 
-
 #INPUT: a dict w/ normalized probabilities as vals
 #OUTPUT: a key chosen randomly according to the probability vals
 def weighted_random_by_dct(dct):
@@ -20,13 +19,13 @@ def ngram_model(w, n):
     d = {}
 
     for i in range(len(w)-n):
-        state = tuple(w[i:i+n])
+        state = tuple(w[i:i+(n-1)])
         if state not in d:
             d[state] = {}
-        if w[i+n] not in d[state]:
-            d[state][w[i+n]] = 1
+        if w[i+n-1] not in d[state]:
+            d[state][w[i+n-1]] = 1
         else:
-            d[state][w[i+n]] += 1
+            d[state][w[i+n-1]] += 1
 
     for state in d:
         total = 0.0
@@ -37,6 +36,7 @@ def ngram_model(w, n):
             d[state][wn] /= total
 
     return d
+
 
 def generate_line(model):
     start = ('-', '-')
@@ -59,6 +59,9 @@ def generate_line(model):
     out = out.replace(' n\'', 'n\'')
 
     return out
+
+
+
 
 words = nltk.tokenize.word_tokenize(open('dude_lines.txt', 'r').read().lower())
 m = ngram_model(words, 2)
