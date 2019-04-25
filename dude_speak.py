@@ -61,19 +61,15 @@ def generate_line(model):
     return out
 
 
+# words = nltk.tokenize.word_tokenize(open('dude_lines.txt', 'r').read().lower())
+# m = ngram_model(words, 2)
+#
+# f = open('spoken_by_dude.txt', 'a')
+#
+# dude_line = generate_line(m)
+# f.write(dude_line + '\n\n')
+# f.close()
 
-
-words = nltk.tokenize.word_tokenize(open('dude_lines.txt', 'r').read().lower())
-m = ngram_model(words, 2)
-
-f = open('spoken_by_dude.txt', 'a')
-
-dude_line = generate_line(m)
-f.write(dude_line + '\n\n')
-
-f.close()
-
-print "The dude says: " + dude_line
 
 
 
