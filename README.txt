@@ -1,4 +1,4 @@
-I thought it'd make an ngram model of The Dude from the big lebowski. Turns out anything above 2gram just returns full
+I thought I'd make an ngram model of The Dude from the big lebowski. Turns out anything above 2gram just returns full
 lines from the movie, I guess because the data set is too small. so the bigram model turned out to be the funniest,
 yielding lines such as these:
 
